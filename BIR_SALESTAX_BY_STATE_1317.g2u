@@ -1,0 +1,482 @@
+Program.Sub.ScreenSU.Start
+Gui.SS_Form1..create
+Gui.SS_Form1..caption("Sales Taxes by State")
+Gui.SS_Form1..size(6160,6655)
+Gui.SS_Form1..position(0,0)
+Gui.SS_Form1..forecolor(0)
+Gui.SS_Form1..fontstyle(,,)
+Gui.SS_Form1..BackColor(-2147483633)
+Gui.SS_Form1..maxbutton(False)
+Gui.SS_Form1..minbutton(False)
+Gui.SS_Form1..mousepointer(0)
+Gui.SS_Form1..sizeable(False)
+Gui.SS_Form1..MinX(0)
+Gui.SS_Form1..MinY(0)
+Gui.SS_Form1..Event(UnLoad,SS_Form1_UnLoad)
+Gui.SS_Form1.lbl_dtpStart.create(label,"Beginning Invoice Date",True,1890,195,1,105,135,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_dtpStart.LabelStretch(True)
+Gui.SS_Form1.lbl_dtpStart.setinternationalid(779801)
+Gui.SS_Form1.dtpStart.create(datepicker)
+Gui.SS_Form1.dtpStart.size(1800,345)
+Gui.SS_Form1.dtpStart.position(105,330)
+Gui.SS_Form1.dtpStart.fontname("Arial")
+Gui.SS_Form1.dtpStart.tabstop(True)
+Gui.SS_Form1.dtpStart.tabindex(1)
+Gui.SS_Form1.lbl_dtpEnd.create(label,"Ending Invoice Date",True,1800,200,1,1985,135,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_dtpEnd.LabelStretch(True)
+Gui.SS_Form1.lbl_dtpEnd.setinternationalid(779901)
+Gui.SS_Form1.dtpEnd.create(datepicker)
+Gui.SS_Form1.dtpEnd.size(1800,345)
+Gui.SS_Form1.dtpEnd.position(1980,330)
+Gui.SS_Form1.dtpEnd.fontname("Arial")
+Gui.SS_Form1.dtpEnd.tabstop(True)
+Gui.SS_Form1.dtpEnd.tabindex(2)
+Gui.SS_Form1.chkAllDates.create(checkbox)
+Gui.SS_Form1.chkAllDates.Caption("All Dates")
+Gui.SS_Form1.chkAllDates.size(1800,300)
+Gui.SS_Form1.chkAllDates.position(105,750)
+Gui.SS_Form1.chkAllDates.setinternationalid(19701)
+Gui.SS_Form1.chkAllDates.tabstop(True)
+Gui.SS_Form1.chkAllDates.tabindex(3)
+Gui.SS_Form1.chkAllDates.Event(Click,chkAllDates_Click)
+Gui.SS_Form1.lbl_txtBegState.create(label,"Beginning State/Zone",True,1800,200,1,100,1235,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtBegState.LabelStretch(True)
+Gui.SS_Form1.lbl_txtBegState.setinternationalid(598703)
+Gui.SS_Form1.txtBegState.create(textbox,"",True,1800,300,1,105,1440,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtBegState.tabstop(True)
+Gui.SS_Form1.txtBegState.tabindex(4)
+Gui.SS_Form1.txtBegState.Event(GotFocus,txtBegState_GotFocus)
+Gui.SS_Form1.txtBegState.Event(LostFocus,txtBegState_LostFocus)
+Gui.SS_Form1.cmd_txtBegState.create(button)
+Gui.SS_Form1.cmd_txtBegState.Caption("^")
+Gui.SS_Form1.cmd_txtBegState.size(330,330)
+Gui.SS_Form1.cmd_txtBegState.position(1980,1440)
+Gui.SS_Form1.cmd_txtBegState.tabstop(True)
+Gui.SS_Form1.cmd_txtBegState.tabindex(5)
+Gui.SS_Form1.cmd_txtBegState.Event(Click,cmd_txtBegState_Click)
+Gui.SS_Form1.lbl_txtEndState.create(label,"Ending State/Zone",True,1800,200,1,2455,1235,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtEndState.LabelStretch(True)
+Gui.SS_Form1.lbl_txtEndState.setinternationalid(598704)
+Gui.SS_Form1.txtEndState.create(textbox,"",True,1800,300,1,2460,1440,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtEndState.tabstop(True)
+Gui.SS_Form1.txtEndState.tabindex(6)
+Gui.SS_Form1.txtEndState.Event(GotFocus,txtEndState_GotFocus)
+Gui.SS_Form1.cmd_txtEndState.create(button)
+Gui.SS_Form1.cmd_txtEndState.Caption("^")
+Gui.SS_Form1.cmd_txtEndState.size(330,330)
+Gui.SS_Form1.cmd_txtEndState.position(4335,1440)
+Gui.SS_Form1.cmd_txtEndState.tabstop(True)
+Gui.SS_Form1.cmd_txtEndState.tabindex(7)
+Gui.SS_Form1.cmd_txtEndState.Event(Click,cmd_txtEndState_Click)
+Gui.SS_Form1.cmdAdd.create(button)
+Gui.SS_Form1.cmdAdd.Caption("Add")
+Gui.SS_Form1.cmdAdd.size(1005,360)
+Gui.SS_Form1.cmdAdd.position(4815,1410)
+Gui.SS_Form1.cmdAdd.setinternationalid(7601)
+Gui.SS_Form1.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.SS_Form1.chkAllState.create(checkbox)
+Gui.SS_Form1.chkAllState.Caption("Print All States/Zones")
+Gui.SS_Form1.chkAllState.size(3600,300)
+Gui.SS_Form1.chkAllState.position(105,1770)
+Gui.SS_Form1.chkAllState.setinternationalid(22902)
+Gui.SS_Form1.chkAllState.Event(Click,chkAllState_Click)
+Gui.SS_Form1.lvwStates.create(listview)
+Gui.SS_Form1.lvwStates.view(3)
+Gui.SS_Form1.lvwStates.size(5805,2250)
+Gui.SS_Form1.lvwStates.position(105,2145)
+Gui.SS_Form1.lvwStates.AddListViewColumn(v.Translation.598703,2850,0) 
+Gui.SS_Form1.lvwStates.AddListViewColumn(v.Translation.598704,2850,0) 
+Gui.SS_Form1.cmdDelete.create(button)
+Gui.SS_Form1.cmdDelete.Caption("Delete")
+Gui.SS_Form1.cmdDelete.size(1005,360)
+Gui.SS_Form1.cmdDelete.position(105,4620)
+Gui.SS_Form1.cmdDelete.setinternationalid(157901)
+Gui.SS_Form1.cmdDelete.tabstop(True)
+Gui.SS_Form1.cmdDelete.tabindex(10)
+Gui.SS_Form1.cmdDelete.Event(Click,cmdDelete_Click)
+Gui.SS_Form1.cmdClear.create(button)
+Gui.SS_Form1.cmdClear.Caption("Clear")
+Gui.SS_Form1.cmdClear.size(1005,360)
+Gui.SS_Form1.cmdClear.position(1185,4620)
+Gui.SS_Form1.cmdClear.setinternationalid(106700)
+Gui.SS_Form1.cmdClear.tabstop(True)
+Gui.SS_Form1.cmdClear.tabindex(11)
+Gui.SS_Form1.cmdClear.Event(Click,cmdClear_Click)
+Gui.SS_Form1.chkPrintVAT.create(checkbox)
+Gui.SS_Form1.chkPrintVAT.Caption("Print VAT Instead of Sales Tax")
+Gui.SS_Form1.chkPrintVAT.size(3600,300)
+Gui.SS_Form1.chkPrintVAT.position(105,5190)
+Gui.SS_Form1.chkPrintVAT.setinternationalid(546003)
+Gui.SS_Form1.cmdPrint.create(button)
+Gui.SS_Form1.cmdPrint.Caption("Print")
+Gui.SS_Form1.cmdPrint.size(1005,360)
+Gui.SS_Form1.cmdPrint.position(105,5685)
+Gui.SS_Form1.cmdPrint.setinternationalid(452800)
+Gui.SS_Form1.cmdPrint.Event(Click,cmdPrint_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.iLogId.Declare(Long,0)
+Variable.Global.iBIRUNID.Declare(Long,0)
+Variable.Global.iKey.Declare(Long,0)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+F.ODBC.Connection!conX.OpenCompanyConnection
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+Gui.SS_Form1..ApplyTranslation
+gui.SS_Form1..Show
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.chkAllDates_Click.Start
+F.Intrinsic.Control.SetErrorHandler("txtBegState_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Function.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllDates.Value,=,0) 
+	Gui.SS_Form1.dtpStart.Enabled(True) 
+	Gui.SS_Form1.dtpEnd.Enabled(True) 
+Function.Intrinsic.Control.Else 
+	Gui.SS_Form1.dtpStart.Enabled(False) 
+	Gui.SS_Form1.dtpEnd.Enabled(False) 
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtBegState_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.chkAllDates_Click.End
+
+Program.Sub.txtBegState_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtBegState_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Gui.SS_Form1.txtBegState.SelectAll
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtBegState_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtBegState_GotFocus.End
+
+Program.Sub.txtBegState_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtEndState_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Gui.SS_Form1.txtEndState.Text(v.Screen.SS_Form1!txtBegState.Text) 
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtEndState_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtBegState_LostFocus.End
+
+Program.Sub.cmd_txtBegState_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtBegState_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+v.Local.sRet.Declare(String) 
+f.Intrinsic.UI.Browser(241,"",v.Local.sRet) 
+Function.Intrinsic.Control.If(v.Local.sRet.Trim,<>,"***CANCEL***") 
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet) 
+	gui.SS_Form1.txtBegState.Text(v.Local.sRet(0).Trim) 
+	gui.SS_Form1.txtEndState.Text(v.Local.sRet(0).Trim) 
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmd_txtBegState_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmd_txtBegState_Click.End
+
+Program.Sub.txtEndState_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtEndState_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Gui.SS_Form1.txtEndState.SelectAll
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmd_txtEndState_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtEndState_GotFocus.End
+
+Program.Sub.cmd_txtEndState_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdAdd_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+v.Local.sRet.Declare(String) 
+f.Intrinsic.UI.Browser(241,"",v.Local.sRet) 
+Function.Intrinsic.Control.If(v.Local.sRet.Trim,<>,"***CANCEL***") 
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet) 
+	gui.SS_Form1.txtEndState.Text(v.Local.sRet(0).Trim) 
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdAdd_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmd_txtEndState_Click.End
+
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chkAllState_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Function.Intrinsic.Control.If(v.screen.SS_Form1!txtBegState.Text.Trim,<>,"","AND",v.Screen.SS_Form1!txtEndState.Text.trim,<>,"")
+	f.Intrinsic.Math.Add(v.Global.ikey,1,v.Global.iKey) 
+	Gui.SS_Form1.lvwStates.AddListItem(v.Global.iKey,v.Screen.SS_Form1!txtBegState.Text) 
+	Gui.SS_Form1.lvwStates.SetListItemSubItemText(v.Global.iKey,1,v.Screen.SS_Form1!txtEndState.Text) 
+	Gui.SS_Form1.txtBegState.Text("") 
+	Gui.SS_Form1.txtEndState.Text("")
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("chkAllState_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.chkAllState_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdDelete_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllState.Value,=,0) 
+	gui.SS_Form1.txtBegState.Text("") 
+	Gui.SS_Form1.txtEndState.Text("") 
+	GUi.SS_Form1.txtBegState.Enabled(True) 
+	Gui.SS_Form1.txtEndState.Enabled(True) 
+	Gui.SS_Form1.lvwStates.Enabled(true) 
+	Gui.SS_Form1.cmdAdd.Enabled(True) 
+	Gui.SS_Form1.cmd_txtBegState.Enabled(True)
+	Gui.SS_Form1.cmd_txtEndState.Enabled(True) 	
+	Gui.SS_Form1.cmdClear.Enabled(True) 
+	Gui.SS_Form1.cmdDelete.Enabled(True)
+Function.Intrinsic.Control.Else 
+	gui.SS_Form1.txtBegState.Text("") 
+	Gui.SS_Form1.txtEndState.Text("") 
+	Gui.SS_Form1.lvwStates.ClearItems
+	GUi.SS_Form1.txtBegState.Enabled(False) 
+	Gui.SS_Form1.txtEndState.Enabled(False) 
+	Gui.SS_Form1.lvwStates.Enabled(False) 
+	Gui.SS_Form1.cmdAdd.Enabled(False) 
+	Gui.SS_Form1.cmd_txtBegState.Enabled(False)
+	Gui.SS_Form1.cmd_txtEndState.Enabled(False) 	
+	Gui.SS_Form1.cmdClear.Enabled(False) 
+	Gui.SS_Form1.cmdDelete.Enabled(False)	
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdDelete_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.chkAllState_Click.End
+
+Program.Sub.cmdDelete_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdClear_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+v.Local.i.Declare(Long) 
+v.Local.i.Set(v.Screen.SS_Form1!lvwStates.SelectedItemKey) 
+Gui.SS_Form1.lvwStates.RemoveItem(v.Local.i) 
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdClear_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdDelete_Click.End
+
+Program.Sub.cmdClear_Click.Start
+hkF.Intrinsic.Control.SetErrorHandler("cmdPrint_Click_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+Gui.SS_Form1.lvwStates.ClearItems
+v.Global.iKey.Set(0)
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdPrint_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.cmdPrint_Click.Start
+F.Intrinsic.Control.SetErrorHandler("SS_Form1_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+v.Local.sRangeFile.Declare(String) 
+v.Local.sFQN.Declare(String) 
+v.Local.sStateRange.Declare(STring) 
+v.Local.iC.Declare(Long) 
+v.Local.iOrd.Declare(Long)
+v.Local.sRows.Declare(String)
+v.Local.sFileCon.Declare(STring)
+v.Local.sBedDate.Declare(String) 
+v.Local.sEndDate.Declare(String) 
+v.Local.sParams.Declare(STring) 
+Gui.SS_Form1..Visible(False)
+F.Global.BI.GetRunID(v.Global.iBIRUNID)
+F.Global.BI.StartLogging(v.Global.iBIRUNID,-1,-1,"",v.Global.iLogId)
+F.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllState.Value,=,0) 
+	Gui.SS_Form1.lvwStates.RetrieveAllListItems(v.Local.sRows) 
+	F.Intrinsic.String.Split(v.Local.sRows,"*!*",v.Local.sRows) 
+	F.Intrinsic.Control.For(v.Local.iC,0,v.Local.sRows.UBound,1) 
+		Gui.SS_Form1.lvwStates.RetrieveItemOrdinal(v.Local.sRows(v.Local.iC),v.Local.iOrd)
+		v.Local.sStateRange.Set(v.Screen.SS_Form1!lvwStates.ListItemTextExtended(v.Local.iOrd)) 
+		F.Intrinsic.String.Split(v.Local.sStateRange,"*!*",v.Local.sStateRange) 
+		F.Intrinsic.String.RPad(v.Local.sStateRange(0)," ",2,v.Local.sStateRange(0))
+		F.Intrinsic.String.RPad(v.Local.sStateRange(1)," ",2,v.Local.sStateRange(1))
+		Function.Intrinsic.Control.If(v.Local.sFileCon.Trim,=,"") 
+			F.Intrinsic.String.Build("{0}{1}",v.Local.sStateRange(0),v.Local.sStateRange(1),v.Local.sFileCon) 		
+		Function.Intrinsic.Control.Else 
+			F.Intrinsic.String.Build("{0}{1}{2}{3}",v.Local.sFileCon,v.Ambient.NewLine,v.Local.sStateRange(0),v.Local.sStateRange(1),v.Local.sFileCon) 			
+		Function.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(v.Local.iC)
+	Function.Intrinsic.Control.If(v.Local.sFileCon.Trim,<>,"") 
+		'write it. 
+		F.Intrinsic.String.Build("{0}{1}",v.Global.iBIRUNID,"PSA013P",v.Local.sRangeFile) 
+		F.Intrinsic.String.Build("{0}\{1}",v.Caller.LocalGSSTempDir,v.Local.sRangeFile,v.Local.sFQN) 
+		F.Intrinsic.File.String2File(v.Local.sFQN,v.Local.sFileCon)		
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllDates.Value,=,0) 
+	F.Intrinsic.String.Format(v.Screen.SS_Form1!dtpStart.Value,"YYYYMMDD",v.Local.sBedDate) 
+	F.Intrinsic.String.Format(v.Screen.SS_Form1!dtpEnd.Value,"YYYYMMDD",v.Local.sEndDate) 
+Function.Intrinsic.Control.EndIf
+	
+'Callwrapper 8140: Runid,All Dates Selected,StartDate,EndDate,AllStatesSelected,StateRangeFileName,VatNotSalesCheck
+F.Intrinsic.String.Build("{0}!*!{1}!*!{2}!*!{3}!*!{4}!*!{5}!*!{6}",v.Global.iBIRUNID,v.Screen.SS_Form1!chkAllDates.Value,v.Local.sBedDate,v.Local.sEndDate,v.Screen.SS_Form1!chkAllState.Value,v.Local.sRangeFile,v.Screen.SS_Form1!chkPrintVAT.Value,v.Local.sParams) 
+F.Intrinsic.Debug.CallWrapperDebugEnable
+F.Global.General.CallWrapperSync(8140,v.Local.sParams) 
+Function.Intrinsic.Control.CallSub(transferdata) 
+Function.Intrinsic.Control.CallSub(callBi)
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("SS_Form1_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdPrint_Click.End
+
+Program.Sub.SS_Form1_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Comments_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+F.ODBC.Connection!conX.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Comments_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.SS_Form1_UnLoad.End
+
+Program.Sub.TransferData.Start
+F.Intrinsic.Control.SetErrorHandler("TransferData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSQL.Declare(STring)
+'Transfer data from Y TO Z. 
+F.Intrinsic.String.Build("Select RunID As BIRUNID,BI_REPORT_ID As REPORTID,SEQ,STATE,PCODE,TAX_DESC,INVOICE,INV_DATE,GROSS,EXEMPT,TAXABLE,TAX,TAX_TYPE FROM Y_SA_SALES_TAX Where RUNID = '{0}'",v.Global.iBIRUNID,v.Local.sSQL) 
+F.Data.DataTable.CreateFromSQL("dtSalesTax","conX",v.Local.sSQL,True) 
+Function.Intrinsic.Control.If(v.DataTable.dtSalesTax.Exists,=,True) 
+	f.Data.DataTable.SaveToDB("dtSalesTax","conX","Z_SA_SALES_TAX","BIRUNID",128) 
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("TransferData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.TransferData.End
+
+Program.Sub.CALLBI.Start
+F.Intrinsic.Control.SetErrorHandler("CALLBI_Err")
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+v.Local.sParam.Declare(STring) 
+v.Local.sVals.Declare(String)
+f.Global.BI.StopLogging(v.Global.iLogId) 
+
+'TITLE 1 OR 0. 
+v.Local.sParam.Set("FRDATE*!*TODATE*!*ALLDATES*!*TITLE")
+f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}",v.Screen.SS_Form1!dtpStart.value,v.Screen.SS_Form1!dtpEnd.Value,v.Screen.SS_Form1!chkAllDates.Value,v.Screen.SS_Form1!chkPrintVAT.Value,v.Local.sVals) 
+F.Global.BI.RunReportPreProcessor(v.Global.iBIRUNID,v.Global.iLogId,v.Local.sParam,v.Local.sVals,"",-1,True,"",-1,"",-1,"","",v.Global.iLogId)
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("CALLBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_SALESTAX_BY_STATE_1317.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.CALLBI.End
+
+Program.Sub.Comments.Start
+${$0$}$BIR_SALESTAX_BY_STATE_1317.g2u$}$TRT$}$09/20/2017 2:42:47 PM$}$False
+Program.Sub.Comments.End
+
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::Sales Taxes by State
+SS_Form1.CTRL{{NAME::dtpStart\\TYPE::6\\CAPTION::Beginning Invoice Date\\TABSTOP::1\\GROUP::1\\BROWSER::0\\INTL::779801\\SIZE::1
+SS_Form1.CTRL{{NAME::dtpEnd\\TYPE::6\\CAPTION::Ending Invoice Date\\TABSTOP::2\\GROUP::1\\BROWSER::0\\INTL::779901\\SIZE::1
+SS_Form1.CTRL{{NAME::chkAllDates\\TYPE::9\\CAPTION::All Dates\\TABSTOP::3\\GROUP::-1\\BROWSER::0\\INTL::19701\\SIZE::1
+SS_Form1.CTRL{{NAME::txtBegState\\TYPE::2\\CAPTION::Beginning State/Zone\\TABSTOP::4\\GROUP::2\\BROWSER::1\\INTL::598703\\SIZE::1
+SS_Form1.CTRL{{NAME::txtEndState\\TYPE::2\\CAPTION::Ending State/Zone\\TABSTOP::5\\GROUP::2\\BROWSER::1\\INTL::598704\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdAdd\\TYPE::5\\CAPTION::Add\\GROUP::2\\BROWSER::0\\INTL::7601\\SIZE::1
+SS_Form1.CTRL{{NAME::chkAllState\\TYPE::9\\CAPTION::Print All States/Zones\\GROUP::-1\\BROWSER::0\\INTL::22902\\SIZE::1
+SS_Form1.CTRL{{NAME::lvwStates\\TYPE::7\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdDelete\\TYPE::5\\CAPTION::Delete\\TABSTOP::6\\GROUP::3\\BROWSER::0\\INTL::157901\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdClear\\TYPE::5\\CAPTION::Clear\\TABSTOP::7\\GROUP::3\\BROWSER::0\\INTL::106700\\SIZE::1
+SS_Form1.CTRL{{NAME::chkPrintVAT\\TYPE::9\\CAPTION::Print VAT Instead of Sales Tax\\GROUP::-1\\BROWSER::0\\INTL::546003\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdPrint\\TYPE::5\\CAPTION::Print\\GROUP::-1\\BROWSER::0\\INTL::452800\\SIZE::1
+
+Program.Sub.ScreenSS.End
